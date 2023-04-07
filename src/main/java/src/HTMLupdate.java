@@ -11,7 +11,7 @@ public class HTMLupdate {
     public static void updateFinal(ArrayList<Node> visited) throws IOException {
         String tag ="";
         String table;
-        File htmlTemplateFile = new File("C:\\Users\\Alina\\Desktop\\Puzzle8\\FinalPage.html");
+        File htmlTemplateFile = new File("FinalPage.html");
         String htmlString = FileUtils.readFileToString(htmlTemplateFile);
         for (int i = 0; i < visited.size(); i++){tag += addTag(i);}
         htmlString = htmlString.replace("$tags", tag);
@@ -24,11 +24,13 @@ public class HTMLupdate {
         FileUtils.writeStringToFile(newHtmlFile, htmlString);
     }
 
-    public static void updateStart(ArrayList<Integer> state) throws IOException {
-        File htmlTemplateFile = new File("C:\\Users\\Alina\\Desktop\\Puzzle8\\StartingPage.html");
+    public static void updateStart(ArrayList<Integer> state, ArrayList<Integer> goal) throws IOException {
+        File htmlTemplateFile = new File("StartingPage.html");
         String htmlString = FileUtils.readFileToString(htmlTemplateFile);
-        String table = getTable(0, state);
-        htmlString = htmlString.replace("$table", table);
+        String table1 = getTable(0, state);
+        htmlString = htmlString.replace("$table1", table1);
+        String table2 = getTable(0, goal);
+        htmlString = htmlString.replace("$table2", table2);
         File newHtmlFile = new File("StartingPage_1.html");
         FileUtils.writeStringToFile(newHtmlFile, htmlString);
     }

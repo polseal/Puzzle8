@@ -1,7 +1,7 @@
 package src;
 import java.util.*;
 
-class Node
+public class Node
 {
     private ArrayList<Integer> state;
     private ArrayList<Integer> goal;
@@ -11,7 +11,7 @@ class Node
     private int g;
     private int f;
     
-    Node(ArrayList<Integer> state, ArrayList<Integer> goal, Heuristic h)
+    public Node(ArrayList<Integer> state, ArrayList<Integer> goal, Heuristic h)
     {
         this.state = state;
         this.parent = null;
@@ -41,7 +41,7 @@ class Node
 
     public ArrayList<Integer>  swap(ArrayList<Integer> state, int indexToReplace)
     {
-        ArrayList<Integer> newState = new ArrayList<Integer>(state);
+        ArrayList<Integer> newState = new ArrayList<>(state);
         int emptyIndex = getEmpty(state);
         newState.set(emptyIndex, newState.get(indexToReplace));
         newState.set(indexToReplace, 0);
@@ -122,8 +122,7 @@ class Node
             default:
                 return null;
         }
-        Node newNode = new Node(newState,this, getGoal(this), this.getHeuristic());
-        return newNode;
+        return new Node(newState,this, getGoal(this), this.getHeuristic());
     }
     public void setState(ArrayList<Integer> s)
     {
@@ -179,5 +178,6 @@ class Node
         }
         return sum;
     }
+
 
 }

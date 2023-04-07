@@ -16,12 +16,6 @@
     <dependencies>
         <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
         <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>6.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mortbay.jetty</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5-20081211</version>
@@ -36,6 +30,5 @@
             <artifactId>commons-io</artifactId>
             <version>1.4</version>
         </dependency>
-
     </dependencies>
 </project>

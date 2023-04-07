@@ -1,4 +1,4 @@
 package src;
 public enum Heuristic {
-    MAN, DIS;
+    MAN, DIS
 }
