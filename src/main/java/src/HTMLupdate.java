@@ -18,7 +18,7 @@ public class HTMLupdate {
         for (int i = 0; i < visited.size(); i++)
         {
             table = getTable(i, visited.get(i).getState());
-            htmlString = htmlString.replace(String.format("$tag%d", i), table);
+            htmlString = htmlString.replace(String.format("$tag%d$", i), table);
         }
         File newHtmlFile = new File("FinalPage_1.html");
         FileUtils.writeStringToFile(newHtmlFile, htmlString);
@@ -56,7 +56,7 @@ public class HTMLupdate {
 
     public static String addTag(int index)
     {
-        return String.format("<p>$tag%d</p>\n", index);
+        return String.format("<p>$tag%d$</p>\n", index);
     }
 
 }

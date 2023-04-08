@@ -48,6 +48,11 @@ public class Node
         return newState;
     }
 
+    public static Node getParent(Node node)
+    {
+        return node.parent;
+    }
+
     public static ArrayList<Integer> getState(Node currentNode)
     {
         return currentNode.state;

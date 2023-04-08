@@ -2,8 +2,8 @@ package src;
 import java.io.IOException;
 import java.util.*;
 
-import static src.Node.getGoal;
-import static src.Node.getState;
+import static java.util.Collections.*;
+import static src.Node.*;
 
 
 public class A_star {
@@ -57,7 +57,7 @@ public class A_star {
             this.visited.add(currentNode);
             currentIndex++;
         }
-        HTMLupdate.updateFinal(visited);
+        HTMLupdate.updateFinal(reverse(reconstruct_path(visited)));
     }
 
     public static boolean checkIfDuplicate(PriorityQueue<Node> pq, Node e)
@@ -72,6 +72,25 @@ public class A_star {
             return false;
         }
         return false;
+    }
+
+    public static ArrayList<Node> reconstruct_path(ArrayList<Node> visited)
+    {
+        ArrayList<Node> path = new ArrayList<>();
+        Node f = visited.get(visited.size()-1);
+        while(f!=visited.get(0))
+        {
+            path.add(f);
+            f = getParent(f);
+        }
+        path.add(visited.get(0));
+        return path;
+    }
+    public ArrayList<Node> reverse(ArrayList<Node> list) {
+        for(int i = 0, j = list.size() - 1; i < j; i++) {
+            list.add(i, list.remove(j));
+        }
+        return list;
     }
 }
 
